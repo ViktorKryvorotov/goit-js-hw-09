@@ -24,14 +24,17 @@ const delay = Number(form.elements.delay.value);
 const step = Number(form.elements.step.value);
 const amount = Number(form.elements.amount.value);
 
-  for (let position = 0; position < amount; position += 1) {
+  for (let position = 1; position <= amount; position += 1) {
 const promiseDelay = delay + position * step;
 createPromise(position, promiseDelay)
 .then(({ position, delay }) => {
-Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+Notiflix.Notify.success(`✅ Fulfilled promise ${position+1} in ${delay}ms`);
 })
 .catch(({ position, delay }) => {
 Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-});
-}
+});    
+  }
+  event.currentTarget.reset();
 };
+
+

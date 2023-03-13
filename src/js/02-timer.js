@@ -38,7 +38,7 @@ startButton.addEventListener('click', () => {
         const timeLeft = targetDate - new Date();
         const timeVelue = convertMs(timeLeft);
         changeTimerCounter(timeVelue);
-        if (timeLeft <0) {
+        if (timeLeft <1000) {
             clearInterval(timeInterval);  
         }
     }, 1000);
